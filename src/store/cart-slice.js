@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { showCart: false };
+const initialState = {
+  showCart: false,
+  status: undefined,
+  title: undefined,
+  message: undefined,
+};
 
 const cartSlice = createSlice({
   name: "Cart",
@@ -11,6 +16,11 @@ const cartSlice = createSlice({
     },
     closeCart(state) {
       state.showCart = false;
+    },
+    updateNavigation(state, action) {
+      state.status = action.payload.status;
+      state.message = action.payload.message;
+      state.title = action.payload.title;
     },
   },
 });
